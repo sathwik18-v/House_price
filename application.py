@@ -61,7 +61,7 @@ def result():
     return render_template('index.html', prediction=result,Status=Status,Location=Location,Facing=Facing,Type=Type)
 
 if __name__=="__main__":
-    application.run(use_reloader=True,debug=True)  # use_reloader allows us to reload the page without re-running the server
+    application.run()  # use_reloader allows us to reload the page without re-running the server
    
     
 
