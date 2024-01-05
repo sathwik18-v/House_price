@@ -1,50 +1,107 @@
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web App</title>
 </head>
-<body>
-    <h1>House Price Prediction</h1>
+<style>
+html{
+      background-color:antiquewhite;
+    }
+    h1{
+      color:whitesmoke;
+      background:#3085C3;
+      text-align: center;
+    }
+    h3{
+      color:#FAF8F1;
+      background-color: #088395;
+      text-align: center;
+    }
+    form{
+        align-items: center;
+    }
+    div{
+        flex-direction: row;
+        align-content: center;
+    }
+    form{
+        
+        display:flex;
+        flex-direction:column;
+        align-content:normal;
+    }
+   
+    .divi{
+        display: flex;
+        align-items: center;
+        background-color: #F4E869;
+        font-size:larger;
+    }
+    #sub{
+        background-color: #5CD2E6;
+        text-align: center;
+        font-size:larger;
+    }
 
-    <form method="post" action="/predict">
+    
+</style>
+<body>
+    
+    <h1>House Prediction</h1>
+
+    <form method="post" action="/predict" >
+    <div>
+        <div class="divi">
         <label>No of Bedrooms</label>
         <input type="number" name="bedrooms" value="1"><br><br>
-
+        </div>
+        <div class="divi">
         <label>No of Bathrooms</label>
         <input type="number" name="bathrooms" value="2"><br><br>
+        </div>
 
+        <div class="divi">
         <label>Location</label>
         <select name="location">
             {% for key,value in Location.items()%}<option value ="{{value}}">{{key}}</option>{%endfor%}
         </select><br><br>
+        </div>
 
+        <div class="divi">
         <label>Area (in sqft)</label>
         <input type="number" name="area" value="1800"><br><br>
+        </div>
 
+        <div class="divi">
         <label>Property Status</label>
         <select name="status">
             {% for key,value in Status.items()%} <option value ="{{value}}">{{key}}</option> {%endfor%}
             
         </select><br><br>
+        </div>
 
+        <div class="divi">
         <label>Direction of Facing</label>
         <select name="facing">
             {% for key,value in Facing.items()%} <option value ="{{value}}">{{key}}</option> {%endfor%}
 
         </select><br><br>
+        </div>
 
+        <div class="divi">
         <label>Type of Property</label>
         <select name="type">
             {% for key,value in Type.items()%} <option value ="{{value}}">{{key}}</option> {%endfor%}
 
         </select><br><br>
-
-        <input type="submit" value="Predict">
-        
+        </div>
+        <div class="divi"><input id="sub"  type="submit" value="Predict"></div>
+    </div>  
     </form>
 
-    <h2> House Price Prediction Result </h2>
-    <p> Predicted House Price : ₹ {{ prediction }} Lakhs</p>
+    <h3> House Price Prediction Result </h3>
+    <p align="center"> Predicted House Price : <strong>₹ {{ prediction }} Lakhs</strong></p>
 </body>
 </html>
